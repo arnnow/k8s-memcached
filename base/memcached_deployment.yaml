@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: memcached
+  labels:
+    tier: memcached
+    role: memcached
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: memcached
+      tier: memcached
+  template:
+    metadata:
+      labels:
+        app: memcached
+        tier: memcached
+    spec:
+      containers:
+        - name: memcached
+          image: launcher.gcr.io/google/memcached1
+          args:
+           - '-m 128'
+          ports:
+           - containerPort: 11211
+          resources:
+            limits:
+              cpu: "0.1"
+              memory: "132Mi"
