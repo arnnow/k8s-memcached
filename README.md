@@ -1,13 +1,13 @@
 # Setup a basic memcached & memcached service
 
-```
+```bash
 {12:08}~/k8s-memcached/env/dev ➭ kubectl apply -k ./
 service/memcached created
 deployment.apps/memcached created
 ```
 
 Check :
-```
+```bash
 {12:09}~ ➭ kubectl get pods,rc,svc,deployments,cm,pv,pvc -o wide
 NAME                             READY   STATUS      RESTARTS   AGE     IP           NODE       NOMINATED NODE   READINESS GATES
 pod/memcached-79bd87856c-gnds9   1/1     Running     0          60s     172.17.0.4   minikube   <none>           <none>
@@ -21,7 +21,7 @@ deployment.apps/memcached   1/1     1            1           60s   memcached    
 ```
 
 Connect to memcached an test :
-```
+```bash
 {12:08}~/k8s-memcached/env/dev ➭ kubectl run -i --tty busybox-`date +%N` --image=busybox --restart=Never -- sh
 If you don't see a command prompt, try pressing enter.
 / # telnet memcached 11211
