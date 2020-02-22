@@ -28,3 +28,8 @@ spec:
             limits:
               cpu: "0.1"
               memory: "132Mi"
+        - name: memcached-exporter
+          image: prom/memcached-exporter
+          ports:
+            - containerPort: 9150
+              protocol: TCP

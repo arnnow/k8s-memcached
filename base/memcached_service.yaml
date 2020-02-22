@@ -5,6 +5,9 @@ metadata:
   labels:
     tier: memcached
     role: memcached
+  annotations:
+    prometheus.io/scrape: 'true'
+    prometheus.io/port:   '9150'
 spec:
   selector:
     app: memcached
