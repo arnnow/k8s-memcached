@@ -21,13 +21,14 @@ spec:
         - name: memcached
           image: launcher.gcr.io/google/memcached1
           args:
-           - '-m 128'
+           - '-m 8'
+           - '-f 1.1'
           ports:
            - containerPort: 11211
           resources:
             limits:
               cpu: "0.1"
-              memory: "132Mi"
+              memory: "16Mi"
         - name: memcached-exporter
           image: prom/memcached-exporter
           ports:
